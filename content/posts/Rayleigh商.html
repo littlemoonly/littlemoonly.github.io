@@ -1,0 +1,66 @@
++++
+title = "Rayleigh quotion"
+date = "2026-03-13T00:16:43+08:00"
+author = "orange bear"
+summary = "Rayleigh 商的定义、几何解释与相关性质。"
+description = "Rayleigh 商的定义、几何解释与相关性质。"
+url = "/2026/03/13/Rayleigh商/"
+tags = ["Linear Algebra"]
+readTime = true
+showTags = true
+math = false
+toc = false
++++
+
+
+    <h3 id="逐个观察奇异值向量">
+<strong>逐个</strong>观察奇异值向量</h3>
+<p><strong>目标 : 最大化 <span class="math inline"><em>λ</em></span>
+:</strong> <span class="math display">$$
+R(x)=\frac{\|A\boldsymbol{x}\|^2}{\|\boldsymbol{x}\|^2}=\frac{\boldsymbol{x}^{\mathrm{T}}A^{\mathrm{T}}A\boldsymbol{x}}{\boldsymbol{x}^{\mathrm{T}}\boldsymbol{x}}=\frac{\boldsymbol{x}^{\mathrm{T}}S\boldsymbol{x}}{\boldsymbol{x}^{\mathrm{T}}\boldsymbol{x}}
+$$</span> 如何求解 <span class="math inline"><em>λ</em></span> 最大值,
+以及取得最大值的时候的 <span class="math inline"><em>x</em></span> 向量
+?</p>
+<p>首先想到可以求导. 结果如下 : <span class="math display">2<em>S</em><em>x</em> = 2<em>λ</em><em>x</em></span>
+这说明 <span class="math inline"><em>x</em></span> 是矩阵 <span class="math inline"><em>S</em> = <em>A</em><sup><em>T</em></sup><em>A</em></span>
+的特征向量, 同时 <span class="math inline"><em>λ</em></span>
+是对应的特征值(也是 <span class="math inline"><em>A</em></span> 的奇异值
+<span class="math inline"><em>σ</em></span>). 因此 <span class="math inline"><em>λ</em><sub>1</sub> = <em>σ</em><sub>1</sub><sup>2</sup></span>,
+<span class="math inline"><em>x</em> = <em>v</em><sub>1</sub></span>.
+<span class="math inline"><em>λ</em><sub><em>n</em></sub></span>
+对应的特征向量 <span class="math inline"><em>x</em></span> 则是
+极小值点. 而 <span class="math inline"><em>λ</em><sub>1</sub></span> 和
+<span class="math inline"><em>λ</em><sub><em>n</em></sub></span>
+之间的特征向量则是 <span class="math inline"><em>R</em>(<em>x</em>)</span> 的驻点.</p>
+<p><strong>目标2 : 最大化<span class="math inline">$\frac{\|A
+x\|}{\|x\|}$</span>, 其中要求 <span class="math inline"><em>v</em><sub>1</sub><sup><em>T</em></sup><em>x</em> = 0</span>.</strong></p>
+<p>最大值是 <span class="math inline"><em>σ</em><sub>2</sub></span>,
+<span class="math inline"><em>x</em> = <em>v</em><sub>2</sub></span>.</p>
+<p>除了求导, 还可以将 <span class="math inline"><em>x</em></span> 写成
+<span class="math inline"><em>v</em></span> 的线性组合(由于 <span class="math inline"><em>d</em><em>i</em><em>m</em>(<em>V</em>) = <em>n</em></span>,
+任意 <span class="math inline"><em>n</em></span> 维向量都可以写成 <span class="math inline"><em>v</em><sup>′</sup><em>s</em></span> 的线性组合)
+: <span class="math inline"><em>x</em> = <em>c</em><sub>1</sub><em>v</em><sub>1</sub> + ... + <em>c</em><sub><em>n</em></sub><em>v</em><sub><em>n</em></sub></span>
+<span class="math display"><em>x</em><sup><em>T</em></sup><em>x</em> = <em>c</em><sub>1</sub><sup>2</sup> + ⋯ + <em>c</em><sub><em>n</em></sub><sup>2</sup></span></p>
+<p><span class="math display"><em>x</em><sup><em>T</em></sup><em>S</em><em>x</em> = <em>λ</em><sub>1</sub><em>c</em><sub>1</sub><sup>2</sup> + ⋯ + <em>λ</em><sub><em>n</em></sub><em>c</em><sub><em>n</em></sub><sup>2</sup></span></p>
+<p>因此 Rayleigh 商可以写成 : <span class="math display">$$
+R(x) = \frac{x^T S x}{x^T x} = \frac{\lambda_1 c_1^2 + \cdots +
+\lambda_n c_n^2}{c_1^2 + \cdots + c_n^2}.
+$$</span></p>
+<p><span class="math display">$$
+\begin{align*}
+R(x) &amp;=\frac{\lambda_1\left(c^2_1 + \dots + c^2_n\right) +
+\left((\lambda_2-\lambda_1)c^2_2+\dots +
+(\lambda_n-\lambda_1)c^2_n\right)}{c^2_1 + \dots + c^2_n} \\
+&amp;= \lambda_1 + \frac{(\lambda_2-\lambda_1)c^2_2+\dots +
+(\lambda_n-\lambda_1)c^2_n}{c^2_1 + \dots + c^2_n}
+\end{align*}
+$$</span></p>
+<p>只要取 <span class="math inline"><em>λ</em><sub>1</sub></span>
+为特征值中的最大值, 之后的项均 ≤0, 从而 <span class="math inline"><em>R</em>(<em>x</em>)</span> 达到最大值. 此时有
+<span class="math inline"><em>c</em><sub>1</sub></span> 为任意非零值,
+其余 <span class="math inline"><em>c</em><sub>2</sub> = ... = <em>c</em><sub><em>n</em></sub> = 0</span>.</p>
+<h3 id="来源">来源</h3>
+<p>Linear Algebra and Learning from Data Ⅰ.8 : Singular Values and
+Singular Vectors in the SVD</p>
+
+  

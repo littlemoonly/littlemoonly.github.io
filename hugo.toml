@@ -1,0 +1,56 @@
+baseURL = "https://littlemoonly.github.io/"
+locale = "zh-CN"
+defaultContentLanguage = "zh-cn"
+title = "orange bear"
+theme = "typo"
+timeZone = "Asia/Shanghai"
+enableRobotsTXT = true
+
+[taxonomies]
+tag = "tags"
+
+[params]
+description = "orange bear 的个人博客"
+theme = "auto"
+colorPalette = "default"
+hideHeader = false
+homeIntroTitle = "Hi!"
+homeIntroContent = "这里记录一些数学与计算机科学的学习笔记。"
+homeCollectionTitle = "文章"
+homeCollection = "posts"
+paginationSize = 20
+listSummaries = true
+listDateFormat = "2006-01-02"
+singleDateFormat = "2006-01-02"
+
+[[params.social]]
+name = "github"
+url = "https://github.com/littlemoonly"
+
+[[params.menu]]
+name = "首页"
+url = "/"
+
+[[params.menu]]
+name = "文章"
+url = "/posts/"
+
+[[params.menu]]
+name = "标签"
+url = "/tags/"
+
+[params.breadcrumbs]
+enabled = true
+showCurrentPage = true
+home = "首页"
+
+[markup]
+[markup.highlight]
+noClasses = false
+
+[markup.goldmark]
+[markup.goldmark.renderer]
+unsafe = true
+
+[security]
+allowContent = ["text/html", "text/markdown"]

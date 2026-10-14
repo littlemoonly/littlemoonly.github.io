@@ -1,0 +1,119 @@
++++
+title = "奇异值分解的构造性证明"
+date = "2026-03-13T00:17:47+08:00"
+author = "orange bear"
+summary = "任意实矩阵奇异值分解存在性的构造性证明。"
+description = "任意实矩阵奇异值分解存在性的构造性证明。"
+url = "/2026/03/13/矩阵奇异值分解/"
+tags = ["Linear Algebra"]
+readTime = true
+showTags = true
+math = false
+toc = false
++++
+
+
+    <h3 id="奇异值分解的构造性证明">奇异值分解的构造性证明</h3>
+<p>下面证明任意 <span class="math inline"><em>m</em> × <em>n</em></span>
+实矩阵奇异值分解的存在性. 也即 : 任意 <span class="math inline"><em>m</em> × <em>n</em></span> 实矩阵可被分解成<span class="math inline"><em>A</em> = <em>U</em><em>Σ</em><em>V</em><sup>T</sup></span>
+的形式, 其中 <span class="math inline"><em>U</em></span> , <span class="math inline"><em>V</em></span> 分别是 <span class="math inline"><em>m</em></span> , <span class="math inline"><em>n</em></span> 阶正交矩阵, <span class="math inline"><em>Σ</em></span> 是 $m n $ 对角矩阵,
+其对角线元素是奇异值从大到小的排列.</p>
+<p>这是一个构造性的证明, 设矩阵 <span class="math inline"><em>A</em></span> 的秩为 <span class="math inline"><em>r</em></span> , 其主要思路是 :</p>
+<ol type="1">
+<li>令出正交矩阵 <span class="math inline"><em>V</em></span> 的 列向量
+<span class="math inline"><em>v</em><sub>1</sub>, ..., <em>v</em><sub><em>n</em></sub></span>
+以及 对角矩阵 <span class="math inline"><em>Σ</em></span> ;</li>
+<li>由 <span class="math inline"><em>A</em><em>V</em> = <em>U</em><em>Σ</em></span>
+得出 <span class="math inline"><em>U</em></span> 的前 <span class="math inline"><em>r</em></span> 列, 证明这样算出的 <span class="math inline"><em>U</em></span> 的前 <span class="math inline"><em>r</em></span> 列是正交单位的; 再给出 <span class="math inline"><em>U</em></span> 的后 <span class="math inline"><em>m</em> − <em>r</em></span> 列, 证明两组 <span class="math inline"><em>U</em></span> 的列拼在一起依然是正交单位的</li>
+<li>至此我们构造出了正交矩阵 <span class="math inline"><em>V</em></span>
+和 <span class="math inline"><em>U</em></span>, 并且完美地满足 <span class="math inline"><em>A</em><em>V</em> = <em>U</em><em>Σ</em></span>
+</li>
+</ol>
+<blockquote>
+<p>证明需要用到:</p>
+<ol type="1">
+<li>
+<p>矩阵 <span class="math inline"><em>A</em></span>
+四个子空间的性质</p>
+<p><span class="math inline"><em>C</em>(<em>A</em>) ⟂ <em>N</em>(<em>A</em><sup><em>T</em></sup>)</span>,
+<span class="math inline"><em>A</em></span> 的列空间和 <span class="math inline"><em>A</em></span> 的左零空间正交(<span class="math inline"><strong>R</strong><sup><em>m</em></sup></span>);</p>
+<p><span class="math inline"><em>C</em>(<em>A</em><sup><em>T</em></sup>) ⟂ <em>N</em>(<em>A</em>)</span>,
+<span class="math inline"><em>A</em></span> 的行空间和 <span class="math inline"><em>A</em></span> 的零空间正交 (<span class="math inline"><strong>R</strong><sup><em>n</em></sup></span>);</p>
+</li>
+<li><p>对称矩阵 <span class="math inline"><em>A</em><sup><em>T</em></sup><em>A</em></span>
+是半正定的 : <span class="math inline"><em>x</em><sup>T</sup><em>A</em><sup>T</sup><em>A</em><em>x</em> = ∥<em>A</em><em>x</em>∥<sup>2</sup> ≥ 0</span></p></li>
+</ol>
+</blockquote>
+<p>下面给出详细的构造或证明过程 :</p>
+<ol type="1">
+<li>
+<strong>构造</strong><span class="math inline"><em>V</em>, <em>Σ</em></span> :令 <span class="math inline"><em>V</em></span> 的 <span class="math inline"><em>n</em></span> 列为 <span class="math inline"><em>A</em><sup><em>T</em></sup><em>A</em></span> 的
+<span class="math inline"><em>n</em></span> 个正交的特征向量. 这里是由于
+<span class="math inline"><em>A</em><sup><em>T</em></sup><em>A</em></span> 是
+<span class="math inline"><em>n</em></span> 阶实对称矩阵, 故被正交矩阵
+<span class="math inline"><em>V</em></span> 相似对角化; 且 <span class="math inline"><em>A</em><sup><em>T</em></sup><em>A</em></span>
+是半正定的. 记 <span class="math inline"><em>A</em></span> 的秩为 <span class="math inline"><em>r</em></span>, 则矩阵 <span class="math inline"><em>A</em><sup>T</sup><em>A</em></span> 秩也是 <span class="math inline"><em>r</em></span> . 故 <span class="math inline"><em>A</em><sup>T</sup><em>A</em></span> 的特征值有:
+<span class="math display"><em>λ</em><sub>1</sub> ≥ … ≥ <em>λ</em><sub><em>r</em></sub> &gt; 0,  <em>λ</em><sub><em>r</em> + 1</sub> = … = <em>λ</em><sub><em>n</em></sub> = 0</span>
+对应的特征向量分为两组: <span class="math inline"><em>r</em></span>
+个正特征值对应的特征向量, 以及 <span class="math inline"><em>A</em><sup>T</sup><em>A</em></span>
+的零特征值对应的特征向量 : <span class="math display">$$
+V _ {1} = \left[ \begin{array}{ccc} v_ {1} &amp; \dots &amp; v_ {r}
+\end{array} \right], \quad V _ {2} = \left[ \begin{array}{c c c c} v_ {r
++ 1} &amp; \dots&amp; v_ {n} \end{array} \right]
+$$</span> 令 $ _ {j} = , j = 1, , n$, 我们构造出如下 <span class="math inline"><em>m</em> × <em>n</em></span> 对角矩阵 <span class="math inline"><em>Σ</em></span>,
+其主对角线元素就是从大到小排列的奇异值, 其余元素均为 <span class="math inline">0</span>. <span class="math display">$$
+\Sigma_ {1} = \left[ \begin{array}{c c c c} \sigma_ {1} &amp; &amp;
+&amp; \\ &amp; \sigma_ {2} &amp; &amp; \\ &amp; &amp; \ddots &amp; \\
+&amp; &amp; &amp; \sigma_ {r} \end{array} \right], \Sigma = \left[
+\begin{array}{c c} \Sigma_ {1} &amp; 0 \\ 0 &amp; 0 \end{array} \right]
+$$</span>
+</li>
+</ol>
+<p><strong>验证 <span class="math inline"><em>A</em><em>V</em><sub>2</sub> = 0</span></strong>
+: 我们凭空给出了 <span class="math inline"><em>V</em></span> 和 <span class="math inline"><em>Σ</em></span>, 而<span class="math inline"><em>A</em><em>V</em> = <em>U</em><em>Σ</em></span>,
+而 <span class="math inline"><em>U</em><em>Σ</em></span> 的后 <span class="math inline"><em>n</em> − <em>r</em></span> 列是 <span class="math inline">0</span>, 在这里我想先验证 <span class="math inline"><em>A</em><em>V</em></span> 确实会产生这些 <span class="math inline">0</span>, 也就是 <span class="math inline"><em>A</em><em>V</em><sub>2</sub> = 0</span>. 由于
+<span class="math inline"><em>V</em><sub>2</sub></span> 的列向量是<span class="math inline"><em>A</em><sup>T</sup><em>A</em><em>x</em> = 0</span>
+的一组线性无关的解, 而 <span class="math inline"><em>A</em><sup>T</sup><em>A</em><em>x</em> = 0</span>
+与 <span class="math inline"><em>A</em><em>x</em> = 0</span> 同解, 所以
+<span class="math inline"><em>V</em><sub>2</sub></span> 的列向量构成
+<span class="math inline"><em>A</em></span> 的零空间的一组标准正交基,
+从而 <span class="math inline"><em>A</em><em>V</em><sub>2</sub> = 0</span>.</p>
+<ol start="2" type="1">
+<li>
+<p><strong>构造 <span class="math inline"><em>U</em></span> 的前
+<span class="math inline"><em>r</em></span> 列</strong> : 由于 <span class="math inline"><em>Σ</em></span> 是对角矩阵, 所以 <span class="math inline"><em>U</em></span> 的前 <span class="math inline"><em>r</em></span> 列其实已经可以确定了. 设 <span class="math inline">$U _ {1} = \left[ \begin{array}{l l l l} u _ {1}
+&amp; \dots &amp; u _ {r} \end{array} \right]$</span></p>
+<p>为了满足 $A V _ {1} = U _ {1} _ {1} <span class="math inline">, <em>令</em>:</span>$ u _ {j} = A v _ {j}, j = 1, ,
+r <span class="math display">$$
+**验证 $U_{1}$ 的列标准正交** :
+$$</span></p>
+<p>$$ 同时我们还发现, 每个 <span class="math inline"><em>u</em></span>
+都是由 <span class="math inline"><em>A</em></span> 的列组合而来的,
+也就是 <span class="math inline"><em>U</em><sub>1</sub></span>
+的列构成了 <span class="math inline"><em>C</em>(<em>A</em>)</span>
+的一组基底.</p>
+<p><strong>构造并验证正交矩阵 <span class="math inline"><em>U</em></span></strong> :</p>
+<p>下面我们想要构造 <span class="math inline"><em>U</em></span>
+的剩下正交的 <span class="math inline"><em>m</em> − <em>r</em></span>
+列, 还必须满足和 <span class="math inline"><em>C</em>(<em>A</em>)</span>
+正交, 而 <span class="math inline"><em>N</em>(<em>A</em><sup><em>T</em></sup>)</span>
+刚好满足要求!</p>
+<p>令 <span class="math inline">{<em>u</em><sub><em>r</em> + 1</sub>, <em>u</em><sub><em>r</em> + 2</sub>, …, <em>u</em><sub><em>m</em></sub>}</span>
+为 <span class="math inline"><em>N</em>(<em>A</em><sup>T</sup>)</span>
+的一组标准正交基，并令 <span class="math inline">$U _ {2} = \left[
+\begin{array}{c c c c} u _ {r + 1},&amp;\dots &amp; ,u _ {m} \end{array}
+\right]$</span>, 以及<span class="math inline">$U = \left[
+\begin{array}{l l} U _ {1} &amp; U _ {2} \end{array} \right]$</span>,
+至此我们成功构造出了 <span class="math inline"><em>m</em></span>
+阶正交矩阵 <span class="math inline"><em>U</em></span>.</p>
+</li>
+</ol>
+<p><span class="math display"><em>A</em> [<em>V</em><sub>1</sub> <em>V</em><sub>2</sub>] = [ <em>U</em><sub>1</sub><em>Σ</em><sub>1</sub>  0<sub><em>m</em> × (<em>n</em> − <em>r</em>)</sub> ]</span></p>
+<p>Perfect !</p>
+<h3 id="拓展">拓展</h3>
+<p>奇异值分解是在平方损失（弗罗贝尼乌斯范数）意义下对矩阵的最优近似.</p>
+<h3 id="参考">参考</h3>
+<p>Linear Algebra and Learning from Data (2019) by <a target="_blank" rel="noopener" href="http://math.mit.edu/~gs">Gilbert Strang</a></p>
+<p>统计学习方法, 李航</p>
+
+  

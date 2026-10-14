@@ -1,0 +1,18 @@
+/* Compatibility for formulas preserved from the previous Hexo site. */
+mjx-container {
+  display: inline-block;
+  max-width: 100%;
+}
+
+mjx-container[display="true"] {
+  display: block;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-block: 0.5rem;
+  text-align: center;
+}
+
+mjx-container svg {
+  max-width: 100%;
+  height: auto;
+}

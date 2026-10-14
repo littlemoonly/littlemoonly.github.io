@@ -1,0 +1,86 @@
++++
+title = "线性代数基础知识"
+date = "2026-03-13T00:19:38+08:00"
+author = "orange bear"
+summary = "线性代数的基础概念与常用结论。"
+description = "线性代数的基础概念与常用结论。"
+url = "/2026/03/13/线性代数基础知识/"
+tags = ["Linear Algebra"]
+readTime = true
+showTags = true
+math = false
+toc = false
++++
+
+
+    <h2 id="线性空间-向量空间">线性空间 / 向量空间</h2>
+<p>向量空间是全部n维向量 连同 加法和数乘运算，合称为向量空间。</p>
+<p>向量空间<span class="math inline">$\bold{R^3}$</span> 包含所有3维向量
+/ 所有具有n个分量的列向量。</p>
+<p>A是mxn矩阵，A的列空间是<span class="math inline"><em>R</em><sup><em>m</em></sup></span>的子空间，即所有列可能的组合，即Ax</p>
+<h2 id="矩阵的秩">矩阵的秩</h2>
+<p><strong>矩阵 A
+的真正大小</strong>是由<strong>秩(</strong>rank)决定的。</p>
+<p>A的秩是主元的数量。</p>
+<h2 id="秩1矩阵">秩1矩阵</h2>
+<p>当所有的行都是主元行的倍数时，秩r = 1；</p>
+<h2 id="列空间-ca">列空间 C(A)</h2>
+<p>对于m*n矩阵：</p>
+<p>列空间C(A) 是 <strong>m维</strong>向量空间，是A
+的所有列向量生成的子空间；</p>
+<p>设 A = [a₁ a₂ … aₙ] （m×n矩阵） 则：C(A) = span{a₁, a₂, …, aₙ} =
+{c₁a₁ + c₂a₂ + … + cₙaₙ : c₁,c₂,…,cₙ ∈ ℝ}；</p>
+<p>列空间维数 <span class="math inline"><em>d</em><em>i</em><em>m</em>(<em>C</em>(<em>A</em>)) = <em>r</em><em>a</em><em>n</em><em>k</em>(<em>A</em>) = 列向量中线性无关向量的最大个数</span></p>
+<h2 id="零空间-na-nullspace">零空间 N(A) NullSpace</h2>
+<p>对于Am*n（m个方程，n个未知数）</p>
+<p>N(A) = {x ∈ ℝⁿ : Ax = 0}，A的零空间是n维向量空间；</p>
+<p>如何理解？</p>
+<p>零空间包含所有被矩阵A”消灭”的向量，即经过线性变换A后变成零向量的所有向量。</p>
+<p>零空间维数 = n - r = 自由变量的个数 = 系统的”自由度”</p>
+<h2 id="左零空间-nat-left-nullspace">左零空间 N(A^T) Left NullSpace</h2>
+<p>是矩阵<span class="math inline"><em>A</em><sup><em>T</em></sup></span>
+的零空间；</p>
+<p><span class="math inline"><em>N</em>(<em>A</em><sup><em>T</em></sup>) = <em>y</em> ∈ <em>ℝ</em><em>ᵐ</em> : <em>A</em><sup><em>T</em></sup><em>y</em> = 0</span>；</p>
+<figure class="highlight plaintext"><table><tr>
+<td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td>
+<td class="code"><pre><span class="line">对于 m×n 矩阵A：</span><br><span class="line"></span><br><span class="line">零空间：    [    A    ] [x] = [0]  (x是n×1向量)</span><br><span class="line">            (m×n)     (n×1)  (m×1)</span><br><span class="line"></span><br><span class="line">左零空间：  [y^T] [    A    ] = [0^T]  (y是m×1向量)</span><br><span class="line">           (1×m)    (m×n)     (1×n)</span><br></pre></td>
+</tr></table></figure>
+<p>左零空间包含所有与<strong>列空间正交</strong>的向量；</p>
+<p>如果 y ∈ N(A^T)，那么 A^T y = 0，这意味着 y 与 A 的每一列都垂直；</p>
+<h2 id="矩阵的相似">矩阵的相似</h2>
+<p><strong>定理1</strong> 数域 <span class="math inline"><em>K</em></span> 上的 <span class="math inline"><em>n</em></span> 阶矩阵 <span class="math inline"><em>A</em></span> 相似于对角矩阵的充要条件是，<span class="math inline"><em>K</em></span> 中有 <span class="math inline"><em>n</em></span> 个数 <span class="math inline"><em>λ</em><sub>1</sub></span>, <span class="math inline"><em>λ</em><sub>2</sub></span>, …., <span class="math inline"><em>λ</em><sub><em>n</em></sub></span>, 并且 <span class="math inline"><em>K</em><sup><em>n</em></sup></span> 中有 <span class="math inline"><em>n</em></span> 个线性无关的向量 <span class="math inline"><em>α</em><sub>1</sub></span>, <span class="math inline"><em>α</em><sub>2</sub></span>,…, <span class="math inline"><em>α</em><sub><em>n</em></sub></span>，使得 <span class="math inline"><em>A</em><em>α</em><sub><em>i</em></sub> = <em>λ</em><sub><em>i</em></sub><em>α</em><sub><em>i</em></sub>(<em>i</em> = 1, 2, ..., <em>n</em>)</span></p>
+<p>这时，令 <span class="math inline"><em>U</em> = (<em>α</em><sub>1</sub>, <em>α</em><sub>2</sub>, ..., <em>α</em><sub><em>n</em></sub>)</span>，则
+<span class="math inline"><em>U</em><sup>−1</sup><em>A</em><em>U</em> = <em>d</em><em>i</em><em>a</em><em>g</em>{<em>λ</em><sub>1</sub>, <em>λ</em><sub>2</sub>, ..., <em>λ</em><sub><em>n</em></sub>}</span></p>
+<blockquote>
+<p>证明：用定义</p>
+</blockquote>
+<h2 id="线性变换的概念">线性变换的概念</h2>
+<p>线性变换 T 使得每个向量 v 变成 T(v)</p>
+<h3 id="判断是否为线性变换的例子">判断是否为线性变换的例子</h3>
+<ol type="1">
+<li><strong>平移不满足线性</strong></li>
+</ol>
+<p>T(v + w) + u0 = T(v) + u0 + T(w) + u0 != T(v) + T(w) + u0</p>
+<p>线性变换 + 平移变换 = 仿射变换</p>
+<ol start="2" type="1">
+<li><strong>旋转满足线性</strong></li>
+</ol>
+<p>基底如何变换决定了整个空间如何变换</p>
+<h3 id="线性变换-求导-t-d-dx">线性变换-求导 T = d / dx</h3>
+<p>在选择输入与输出基底之后，线性变换的矩阵随之确定</p>
+<p>求导变换 <span class="math inline"><em>T</em></span> 有一个核(即 u =
+常数，u(x) = C )，对应的矩阵A有一维零空间。</p>
+<h2 id="线性变换的矩阵">线性变换的矩阵</h2>
+<p>基底决定矩阵</p>
+<p>关键概念：</p>
+<p>输入基底 v1, v2, …., vn , 任意 v ∈ V 都是基底向量 v ’s 的组合</p>
+<p>T(v) = T(c1v1 + …. + cnvn) = c1T(v1) + …. + cnT(vn)</p>
+<h3 id="基底变换">基底变换</h3>
+<p>只有当输入与输出基底相同的时候，T(v) = v 单位变换的矩阵是 I</p>
+<h3 id="矩阵乘积与线性变换乘积是等价的">矩阵乘积与线性变换乘积是等价的</h3>
+<h3 id="选择最佳基底">选择最佳基底</h3>
+<p>特征向量是最佳的基底向量，此时变换矩阵是对角阵</p>
+<h3 id="相似的概念">相似的概念</h3>
+<p>Bin = Bout</p>
+
+  
