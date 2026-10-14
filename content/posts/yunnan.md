@@ -1,7 +1,12 @@
 +++
 title = '在云之南'
 date = 2026-10-15T00:08:32+08:00
-draft = true
+draft = false
+tags = ['travel']
+summary = '和妈妈在大理、抚仙湖与昆明旅行七天的见闻与随记。'
+description = '和妈妈在大理、抚仙湖与昆明旅行七天的见闻与随记。'
+showTags = true
+readTime = true
 
 +++
 
