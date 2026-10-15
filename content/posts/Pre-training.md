@@ -1,11 +1,22 @@
-[toc]
++++
+title = 'pre-training'
+date = 2026-10-15T00:18:32+08:00
+draft = false
+tags = ['LLM']
+summary = '预训练'
+description = '预训练'
+showTags = true
+readTime = true
+math = true
++++
 
 ## 2.2 预训练数据
 
 #### 数据量单位
 
 1B=10亿
-1T = 1万亿万，比B还多3个0
+
+1T = 1万亿，比B还多3个0
 
 预训练数据的总体数据量会达到 10T tokens 的量级
 
@@ -13,7 +24,7 @@
 
 数据收集 → 数据清洗 →质量打分 →去重 →多样性采样 →数据混合 →Tokenize
 
-### 1. 数据清洗
+## 数据清洗
 
 #### 语言识别：FastText
 
@@ -42,7 +53,7 @@ FastText 模型是一种轻量级的文本分类模型，它可以用于语言�
 
 > *Maybe Only 0.5% Data Is Needed*
 
-1. **Encoding ：**将一个任务文本中的所有 token 编码为向量
+1. **Encoding ：** 将一个任务文本中的所有 token 编码为向量
    eg. 假设文本 `求解方程 x² - 4 = 0` 有 20个 token，模型隐藏维度是768，经过 embedding model 后 ，被编码为 20 个768 维向量
 2. **Mean Pooling**：对 token 维度取平均，得到句子级向量
    eg. 20 x 768 被平均为 1x768
@@ -125,7 +136,7 @@ $$
 
 训练时，一次处理的 token 数量会从 4096 增加到 16384（也就是 `seq_len` ）
 
-**要解决的问题：**模型原来只能处理 4K Tokens，如何继续训练，让它能有效处理 16K 甚至更长的 Tokens？
+**要解决的问题：** 模型原来只能处理 4K Tokens，如何继续训练，让它能有效处理 16K 甚至更长的 Tokens？
 
 Code Llama 采用了 Long Context Fine-Tuning（LCFT） 的方法。
 
@@ -143,7 +154,9 @@ $$
 
 ### PPL 困惑度 Perplexity
 
- \[ L=-\frac{1}{N}\log P(\text{整个句子}) \] 
+$$
+L=-\frac{1}{N}\log P(\text{整个句子})
+$$
 
 衡量模型对下个token预测概率有多自信
 
