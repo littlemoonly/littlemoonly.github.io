@@ -1,0 +1,37 @@
+{{- $left := resources.Get (.Get "left") -}}
+{{- $right := resources.Get (.Get "right") -}}
+
+{{- if not $left -}}
+  {{- errorf "image-pair: cannot find %q" (.Get "left") -}}
+{{- end -}}
+{{- if not $right -}}
+  {{- errorf "image-pair: cannot find %q" (.Get "right") -}}
+{{- end -}}
+
+<div class="image-pair">
+  <figure>
+    <div class="img-container">
+      <img loading="lazy"
+        src="{{ $left.RelPermalink }}"
+        alt="{{ .Get "leftAlt" }}"
+        width="{{ $left.Width }}"
+        height="{{ $left.Height }}">
+    </div>
+    {{- with .Get "leftCaption" }}
+      <div class="caption-container"><figcaption>{{ . }}</figcaption></div>
+    {{- end }}
+  </figure>
+
+  <figure>
+    <div class="img-container">
+      <img loading="lazy"
+        src="{{ $right.RelPermalink }}"
+        alt="{{ .Get "rightAlt" }}"
+        width="{{ $right.Width }}"
+        height="{{ $right.Height }}">
+    </div>
+    {{- with .Get "rightCaption" }}
+      <div class="caption-container"><figcaption>{{ . }}</figcaption></div>
+    {{- end }}
+  </figure>
+</div>

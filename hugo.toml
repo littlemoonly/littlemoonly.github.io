@@ -1,6 +1,7 @@
 baseURL = "https://littlemoonly.github.io/"
 locale = "zh-CN"
 defaultContentLanguage = "zh-cn"
+hasCJKLanguage = true
 title = "orange bear"
 theme = "typo"
 timeZone = "Asia/Shanghai"

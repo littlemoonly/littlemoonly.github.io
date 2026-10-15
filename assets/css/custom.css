@@ -16,3 +16,33 @@ mjx-container svg {
   max-width: 100%;
   height: auto;
 }
+
+/* A landscape and portrait photo displayed at approximately equal heights. */
+.image-pair {
+  display: grid;
+  grid-template-columns: minmax(0, 2.37fr) minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+  margin-block: 2rem;
+}
+
+.image-pair figure {
+  margin: 0;
+}
+
+.image-pair img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Warm sunset tone for the closing memory in the Yunnan travel note. */
+.sunset-memory {
+  color: light-dark(#b85f28, #e9a064);
+}
+
+@media (max-width: 640px) {
+  .image-pair {
+    grid-template-columns: 1fr;
+  }
+}
